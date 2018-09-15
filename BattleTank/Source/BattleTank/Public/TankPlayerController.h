@@ -2,6 +2,7 @@
 
 #pragma once
 #include "Tank.h"
+#include "Engine/World.h"
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
@@ -23,7 +24,17 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+
 private:
+
+	UPROPERTY(EditAnywhere)
+		float CrossHairXLocation = 0.5f;
+	UPROPERTY(EditAnywhere)
+		float CrossHairYLocation = 0.33333f;
+
+	float Reach = 100000.f;
+
 	ATank* GetControlledTank() const;
 	void AimTowardsCrosshair();
+	bool GetSightRayHitLocation(FVector&) const;
 };
