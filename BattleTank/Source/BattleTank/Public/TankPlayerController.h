@@ -28,14 +28,15 @@ public:
 private:
 
 	UPROPERTY(EditAnywhere)
-		float CrossHairXLocation = 0.5f;
+	float CrossHairXLocation = 0.5f;
 	UPROPERTY(EditAnywhere)
-		float CrossHairYLocation = 0.33333f;
-
-	float Reach = 100000.f;
+	float CrossHairYLocation = 0.33333f;
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000.f;
 
 	ATank* GetControlledTank() const;
 	void AimTowardsCrosshair();
 	bool GetSightRayHitLocation(FVector&) const;
 	bool GetLookDirection(FVector2D ScreenLocation, FVector &WorldDirection) const;
+	bool GetLookVectorHitLocation(FVector& HitLocation,FVector LookDirection) const;
 };
