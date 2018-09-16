@@ -18,7 +18,7 @@ public:
 	void RotateAzimoth(float RelativeSpeed);
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)
-	float MaxDegreesPerSecond = 5.f; //Sensible Default
+	float MaxDegreesPerSecond = 25.f; //Sensible Default
 
 	
 
