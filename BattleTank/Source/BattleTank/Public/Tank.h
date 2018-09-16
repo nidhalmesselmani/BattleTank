@@ -33,6 +33,8 @@ protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
+	UFUNCTION(BlueprintCallable, Category=Dammage)
+	void Fire();
 	UPROPERTY(EditAnywhere,Category=Firing)
 	float LaunchSpeed = 40000.f; //sensible starting value of 1000 m/s 
 
