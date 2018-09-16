@@ -22,8 +22,11 @@ public:
 	void AimAt(FVector HitLocation);
 	UFUNCTION(BlueprintCallable, Category=Setup)
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
+
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetTurretReference(UTankTurret* TurretToSet);
+	UFUNCTION(BlueprintCallable, Category = Dammage)
+	void Fire();
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -34,8 +37,7 @@ protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
-	UFUNCTION(BlueprintCallable, Category=Dammage)
-	void Fire();
+
 	UPROPERTY(EditAnywhere,Category=Firing)
 	float LaunchSpeed = 40000.f; //sensible starting value of 1000 m/s 
 
@@ -44,5 +46,7 @@ private:
 
 	//local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr;
-	
+	float ReloadTimeInSeconds = 3;
+
+	double LastFireTime = 0;
 };
